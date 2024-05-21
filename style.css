@@ -32,3 +32,15 @@ body {
     border: 1px solid;
     /* ARREDONDAR BORDAS DEPOIS */
   }
+
+  button {
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #235225;
+  }
