@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Freeman&family=Poetsen+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
-    /* PEGAR FONTE DO GOOGLE DEPOIS */
     background-color: #2E8B57;
-  }s
+  }
  
   h1, h2 {
+    font-family: "Poetsen One", sans-serif;
     text-align: center;
   }
 
@@ -23,6 +24,7 @@ body {
   }
 
   label {
+    font-family: "Freeman", sans-serif;
     display: block;
     margin-bottom: 8px;
   }
