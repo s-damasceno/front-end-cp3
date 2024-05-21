@@ -1,13 +1,21 @@
+class Usuario {
+    constructor(nome, email, password) {
+        this.nome = nome;
+        this.email = email;
+        this.password = password;
+    }
+}
+
 const usuariosPredefinidos = [
-    { nome: "Usuário 1", email: "usuario1@fiap.com.br", password: "111111" },
-    { nome: "Usuário 2", email: "usuario2@fiap.com.br", password: "222222" },
-    { nome: "Usuário 3", email: "usuario3@fiap.com.br", password: "333333" },
-    { nome: "Usuário 4", email: "usuario4@fiap.com.br", password: "444444" },
-    { nome: "Usuário 5", email: "usuario5@fiap.com.br", password: "555555" },
-    { nome: "Usuário 6", email: "usuario6@fiap.com.br", password: "666666" },
-    { nome: "Usuário 7", email: "usuario7@fiap.com.br", password: "777777" },
-    { nome: "Usuário 8", email: "usuario8@fiap.com.br", password: "888888" },
-    { nome: "Usuário 9", email: "usuario9@fiap.com.br", password: "999999" },
+    new Usuario ("Usuário 1", "usuario1@fiap.com.br", "111111"),
+    new Usuario ("Usuário 2", "usuario2@fiap.com.br", "222222"),
+    new Usuario ("Usuário 3", "usuario3@fiap.com.br", "333333"),
+    new Usuario ("Usuário 4", "usuario4@fiap.com.br", "444444"),
+    new Usuario ("Usuário 5", "usuario5@fiap.com.br", "555555"),
+    new Usuario ("Usuário 6", "usuario6@fiap.com.br", "666666"),
+    new Usuario ("Usuário 7", "usuario7@fiap.com.br", "777777"),
+    new Usuario ("Usuário 8", "usuario8@fiap.com.br", "888888"),
+    new Usuario ("Usuário 9", "usuario9@fiap.com.br", "999999")
   ];
 
 const formularioLogin = document.getElementById("formulario-login");
@@ -16,11 +24,6 @@ const mensagemErro = document.getElementById("mensagem-erro");
 const botaoLogout = document.getElementById("btn-logout");
 const divDados = document.getElementById("dados-usuario");
 
-function armazenarUsuarios(usuarios) {
-    let stringUsuarios = "";
-    for (let i = 0; i < usuarios.length; i++) {
-      const user = usuarios[i];
-      stringUsuarios += `Nome: ${user.nome}, email: ${user.email}, senha: ${user.password};`
-      }
-    localStorage.setItem("usuarios", stringUsuarios);
-}
+if (localStorage.getItem("usuarios") === null) {
+    localStorage.setItem("usuarios", JSON.stringify(usuariosPredefinidos))
+  }
