@@ -1,8 +1,8 @@
 class Usuario {
-    constructor(nome, email, password) {
+    constructor(nome, email, senha) {
         this.nome = nome;
         this.email = email;
-        this.password = password;
+        this.senha = senha;
     }
 }
 
@@ -16,7 +16,7 @@ const usuariosPredefinidos = [
     new Usuario ("Usuário 7", "usuario7@fiap.com.br", "777777"),
     new Usuario ("Usuário 8", "usuario8@fiap.com.br", "888888"),
     new Usuario ("Usuário 9", "usuario9@fiap.com.br", "999999")
-  ];
+];
 
 const formularioLogin = document.getElementById("formulario-login");
 const mensagemErro = document.getElementById("mensagem-erro");
@@ -27,3 +27,16 @@ const divDados = document.getElementById("dados-usuario");
 if (localStorage.getItem("usuarios") === null) {
     localStorage.setItem("usuarios", JSON.stringify(usuariosPredefinidos))
   }
+
+function validarLogin(email, senha) {
+    const stringUsuarios = localStorage.getItem("usuarios");
+    const usuarios = JSON.parse(stringUsuarios);
+      
+    for (let i = 0; i < usuarios.length; i++) {
+      const usuario = usuarios[i];
+      if (email === usuario.email && senha === usuario.senha) {
+        return true;
+      }
+    }
+    return false;
+}
