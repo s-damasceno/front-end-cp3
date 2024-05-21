@@ -19,7 +19,7 @@ const usuariosPredefinidos = [
 ];
 
 const formularioLogin = document.getElementById("formulario-login");
-const mensagemErro = document.getElementById("mensagem-erro");
+const mensagem = document.getElementById("mensagem");
 
 const botaoLogout = document.getElementById("btn-logout");
 const divDados = document.getElementById("dados-usuario");
@@ -34,9 +34,28 @@ function validarLogin(email, senha) {
       
     for (let i = 0; i < usuarios.length; i++) {
       const usuario = usuarios[i];
+      console.log(usuario)
+
       if (email === usuario.email && senha === usuario.senha) {
-        return true;
+        exibirMensagem("Login feito com sucesso! Bem-vindo!");
+        window.location.assign("./index.html");
+        return
       }
     }
-    return false;
+    exibirMensagem("Login inválido. Tente novamente.");
+}
+
+function fazerLogin() {
+    const email = document.getElementById("formulario-email").value;
+    const senha = document.getElementById("formulario-senha").value;
+
+    validarLogin(email, senha);
+}
+
+function exibirMensagem(texto) {
+    mensagem.textContent = texto;
+}
+
+function logout(){
+    window.location.assign("./login.html");
 }
