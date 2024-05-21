@@ -13,6 +13,7 @@ body {
     background-color: #2E8B57;
     font-family: "Freeman", sans-serif;
     color: #333333;
+    min-height: 100vh;
   }
  
   h1, h2 {
