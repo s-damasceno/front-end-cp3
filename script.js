@@ -35,6 +35,7 @@ function validarLogin(email, senha) {
     for (let usuario of usuarios) {
         if (email === usuario.email && senha === usuario.senha) {
             exibirMensagem("sucesso", "Login feito com sucesso! Bem-vindo!");
+            sessionStorage.setItem("usuarioLogando", JSON.stringify(usuario));
             setTimeout(() => {
                 window.location.assign("./index.html");
             }, 5000);
@@ -51,6 +52,7 @@ function fazerLogin() {
 }
 
 function exibirMensagem(tipo, texto) {
+    mensagem.classList.remove("sucesso", "erro");
     if (tipo == "sucesso") {
         mensagem.classList.add("sucesso")
     }
@@ -63,4 +65,15 @@ function exibirMensagem(tipo, texto) {
 
 function logout(){
     window.location.assign("./login.html");
+}
+
+function exibirDados() {
+    const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogando"));
+        document.getElementById("dados-usuario").innerHTML = `
+            <p>Nome: ${usuarioLogado.nome}</p>
+            <p>Email: ${usuarioLogado.email}</p>`;
+}
+
+if (window.location.pathname.endsWith("index.html")) {
+    exibirDados();
 }
