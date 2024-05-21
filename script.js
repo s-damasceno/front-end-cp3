@@ -31,29 +31,34 @@ if (localStorage.getItem("usuarios") === null) {
 function validarLogin(email, senha) {
     const stringUsuarios = localStorage.getItem("usuarios");
     const usuarios = JSON.parse(stringUsuarios);
-      
-    for (let i = 0; i < usuarios.length; i++) {
-      const usuario = usuarios[i];
-      console.log(usuario)
 
-      if (email === usuario.email && senha === usuario.senha) {
-        exibirMensagem("Login feito com sucesso! Bem-vindo!");
-        window.location.assign("./index.html");
-        return
-      }
+    for (let usuario of usuarios) {
+        if (email === usuario.email && senha === usuario.senha) {
+            exibirMensagem("sucesso", "Login feito com sucesso! Bem-vindo!");
+            setTimeout(() => {
+                window.location.assign("./index.html");
+            }, 5000);
+            return;
+        }
     }
-    exibirMensagem("Login inválido. Tente novamente.");
+    exibirMensagem("erro", "Login inválido. Tente novamente.");
 }
 
 function fazerLogin() {
     const email = document.getElementById("formulario-email").value;
     const senha = document.getElementById("formulario-senha").value;
-
     validarLogin(email, senha);
 }
 
-function exibirMensagem(texto) {
+function exibirMensagem(tipo, texto) {
+    if (tipo == "sucesso") {
+        mensagem.classList.add("sucesso")
+    }
+    if (tipo == "erro") {
+        mensagem.classList.add("erro")
+    }
     mensagem.textContent = texto;
+    mensagem.style.display = "block";
 }
 
 function logout(){

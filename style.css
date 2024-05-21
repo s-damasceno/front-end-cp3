@@ -52,3 +52,21 @@ body {
   button:hover {
     background-color: #20663f;
   }
+
+  .mensagem {
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.mensagem.sucesso {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.mensagem.erro {
+    background-color: #f2dede;
+    color: #a94442;
+}
