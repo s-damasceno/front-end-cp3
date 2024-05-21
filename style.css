@@ -14,8 +14,21 @@ body {
   }
 
   .login-container, .index-container {
-    max-width: 400px;
     margin: 50px auto;
     padding: 20px;
+    max-width: 400px;
     background-color: #ff8080;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    /* ARREDONDAR BORDAS DEPOIS */
   }
